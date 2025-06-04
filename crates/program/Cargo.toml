@@ -1,0 +1,17 @@
+[package]
+name = "program"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+tracing.workspace = true
+anyhow.workspace = true
+rayon.workspace = true
+dashmap.workspace = true
+common.workspace = true
+clap.workspace = true
+
+tg-parser.workspace = true
+tg-bytes-util.workspace = true

@@ -1,0 +1,8 @@
+[package]
+name = "tg-bytes-util"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+varint-rs.workspace = true
+byteorder.workspace = true

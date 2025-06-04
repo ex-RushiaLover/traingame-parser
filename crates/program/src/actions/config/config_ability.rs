@@ -1,0 +1,29 @@
+use super::ConfigManifest;
+use crate::parse_and_count;
+use anyhow::Result;
+use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
+use std::{collections::HashMap, path::Path};
+use tg_parser::DataDefine;
+
+/// RPG.GameCore.TurnBasedAbilityConfigList
+pub fn parse(
+    assets: &HashMap<i32, Vec<u8>>,
+    types: &HashMap<String, DataDefine>,
+    out_folder: &Path,
+    config_manifest: &ConfigManifest,
+) -> Result<()> {
+    config_manifest
+        .turn_based_ability_config
+        .par_iter()
+        .for_each(|json_path| {
+            parse_and_count!(
+                json_path,
+                "RPG.GameCore.TurnBasedAbilityConfigList",
+                assets,
+                types,
+                out_folder
+            );
+        });
+
+    Ok(())
+}

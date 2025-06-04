@@ -1,0 +1,10 @@
+[package]
+name = "tg-asset-meta"
+edition = "2024"
+version.workspace = true
+
+[dependencies]
+varint-rs.workspace = true
+byteorder.workspace = true
+
+tg-bytes-util.workspace = true

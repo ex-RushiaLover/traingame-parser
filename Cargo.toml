@@ -1,0 +1,47 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/bytes-util",
+    "crates/asset-meta",
+    "crates/common",
+    "crates/parser",
+    "crates/program",
+]
+
+[workspace.package]
+version = "0.1.0"
+
+[workspace.dependencies]
+# binary utils
+byteorder = "1.5.0"
+varint-rs = { version = "2.2.0", features = ["signed"] }
+xxhash-rust = { version = "0.8.15", features = ["const_xxh64"] }
+
+# net utils
+reqwest = { version = "0.12.15", features = ["blocking"] }
+
+# parallelization
+dashmap = { version = "6.1.0", features = ["rayon"] }
+rayon = "1.10.0"
+
+# serialization
+base64 = "0.22.1"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = { version = "1.0.140", features = ["preserve_order"] }
+
+# error handling
+anyhow = "1.0.98"
+
+# loging utils
+indicatif = "0.17.11"
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+
+# cli
+clap = { version = "4.5.39", features = ["derive"] }
+
+# local crates
+common = { path = "crates/common" }
+tg-asset-meta = { path = "crates/asset-meta" }
+tg-bytes-util = { path = "crates/bytes-util" }
+tg-parser = { path = "crates/parser" }
